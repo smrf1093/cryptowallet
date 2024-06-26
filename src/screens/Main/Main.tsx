@@ -23,7 +23,7 @@ import SendImage from '@/theme/assets/images/send.png';
 import ColorsWatchImage from '@/theme/assets/images/colorswatch.png';
 import TranslateImage from '@/theme/assets/images/translate.png';
 
-function Example() {
+function Main() {
 	const { t } = useTranslation(['example', 'welcome']);
 
 	const {
@@ -163,4 +163,4 @@ function Example() {
 	);
 }
 
-export default Example;
+export default Main;
