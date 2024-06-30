@@ -26,8 +26,11 @@ function Startup({ navigation }: RootScreenProps<"Startup">) {
     },
   });
 
-  const handleNavigate = () => {
-    navigation.navigate("Main");
+  const handleMainNavigate = () => {
+    navigation.navigate("MainTab");
+  };
+  const handleMnemonicNavigate = () => {
+    navigation.navigate("Mnemonic");
   };
 
   return (
@@ -40,12 +43,16 @@ function Startup({ navigation }: RootScreenProps<"Startup">) {
         </CustomizedText>
 
         <CustomizedButton
-          onPress={handleNavigate}
+          onPress={handleMainNavigate}
           title="Create Account"
           bold
           containerStyle={styles.buttonContainer}
           buttonStyle={styles.button}
         />
+        
+        <TouchableOpacity onPress={handleMnemonicNavigate} style={styles.importContainer}>
+          <Text style={styles.importText}>Import</Text>
+        </TouchableOpacity>
       </View>
     </SafeScreen>
   );
@@ -56,7 +63,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#347AF0", // Replace with your desired background color
     alignItems: "center",
-    // justifyContent: 'center',
   },
   text: {
     color: "white",
@@ -65,13 +71,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: "absolute",
-    bottom: 30,
+    bottom: 70, // Adjusted to make room for the import text
     width: "100%",
     alignItems: "center",
   },
   button: {
     backgroundColor: "white",
-	color: "#347AF0",
+    color: "#347AF0",
     borderRadius: 25,
     paddingVertical: 12,
     paddingHorizontal: 30,
@@ -82,6 +88,16 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#347AF0",
     fontSize: 16,
+  },
+  importContainer: {
+    position: "absolute",
+    bottom: 30, // Position the import text below the button
+    alignItems: "center",
+  },
+  importText: {
+    color: "white",
+    fontSize: 16,
+    textDecorationLine: "underline",
   },
 });
 
